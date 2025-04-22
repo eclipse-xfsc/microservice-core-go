@@ -1,0 +1,12 @@
+name: Go QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  
+jobs:
+  call-go-qa:
+    uses: eclipse-xfsc/dev-ops/.github/workflows/go-qa.yml@main
