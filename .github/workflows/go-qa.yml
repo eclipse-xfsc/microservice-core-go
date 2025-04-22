@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+name: Go QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  
+jobs:
+  call-go-qa:
+    uses: eclipse-xfsc/dev-ops/.github/workflows/go-qa.yml@main
+=======
+name: Check Code & Govuln
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-code:
+    name: Staticcheck
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.21.5
+    if: github.ref_type != 'tag'
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+      - name: Run staticcheck
+        run: staticcheck ./...
+
+  govulncheck:
+    name: Go Vulnerability Check
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.24.2
+    if: github.ref_type != 'tag'
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install govulncheck
+        run: go install golang.org/x/vuln/cmd/govulncheck@latest
+      - name: Run govulncheck
+        run: govulncheck ./...
+>>>>>>> 51a2486f787ec1013d2975d235ba4400a60f2dd5
