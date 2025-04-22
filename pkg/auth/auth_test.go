@@ -127,7 +127,7 @@ func TestAuthMiddleware_Handler(t *testing.T) {
 	t.Run("authenticate with token signed with unknown key (invalid signature)", func(t *testing.T) {
 		req, err := http.NewRequest(http.MethodGet, "https://example.com", nil)
 		assert.NoError(t, err)
-
+		// gg-ignore: test secret, not valid
 		token := "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImtleTEifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTY2NDk2MDg2OCwiZXhwIjoxNjY0OTY0NDY4fQ.FrIA3A228den86qX72o4yP3TiEA9uOf46Yav_vY5daCQ8yeAm3GaBzC_nikt0y9NSCR6K2G2GCm7RcdfP3vQ9CFh2R7FtL4nfjffdauLmXVzp3z_lyBIKYL3RsTGChctfMeYZzk2F6EDmGHeI8xV3KiDC5Gfkvfdp9MfFxVy7DcuEV9MLo_9j4Y-7nfuB1CbdF_1vzSsO0twitePjsB59CNndugJgTUGFjKUJU2_e7vKMR_i9NvFHfJZS2VbtX3vrZ5f_pfOvBSSZJBxG50Uwf6COhtABieVHhhmLBSJq1P1EWRAI26Bk-YtE8k-jfjra9W1RF5DLF7Jh9Lw-utc5A" //nolint:gosec
 		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 
