@@ -202,7 +202,7 @@ github.com/lestrrat-go/httprc
 ## explicit; go 1.13
 github.com/lestrrat-go/iter/arrayiter
 github.com/lestrrat-go/iter/mapiter
-# github.com/lestrrat-go/jwx/v2 v2.1.5
+# github.com/lestrrat-go/jwx/v2 v2.1.6
 ## explicit; go 1.23.0
 github.com/lestrrat-go/jwx/v2
 github.com/lestrrat-go/jwx/v2/cert
