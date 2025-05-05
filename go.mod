@@ -20,7 +20,7 @@ require (
 	github.com/swaggo/files v1.0.1
 	github.com/swaggo/gin-swagger v1.6.0
 	go.uber.org/zap v1.27.0
-	goa.design/goa/v3 v3.20.1
+	goa.design/goa/v3 v3.21.0
 )
 
 require (
