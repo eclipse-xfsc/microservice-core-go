@@ -13,7 +13,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/lestrrat-go/jwx/v2 v2.1.5
 	github.com/magiconair/properties v1.8.10
-	github.com/redis/go-redis/v9 v9.7.3
+	github.com/redis/go-redis/v9 v9.8.0
 	github.com/sethvargo/go-retry v0.3.0
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
