@@ -2,10 +2,11 @@ package server
 
 import (
 	"fmt"
-	swaggerfiles "github.com/swaggo/files"
 	"net/http"
 	"strings"
 	"sync"
+
+	swaggerfiles "github.com/swaggo/files"
 
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -178,8 +179,25 @@ func (s *GinServer) SetHealthHandler(fn func(ctx *gin.Context)) {
 	s.healthHandlerFn = fn
 }
 
+func customLogger() gin.HandlerFunc {
+	logger := gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+		return fmt.Sprintf("%s %s %d\n", param.Method, param.Path, param.StatusCode)
+	})
+
+	return func(c *gin.Context) {
+		// Health-Route überspringen
+		if c.Request.URL.Path == "/v1/metrics/health" {
+			c.Next()
+			return
+		}
+		logger(c)
+	}
+}
+
 func (s *GinServer) resetRoutes() {
-	s.router = gin.Default()
+	s.router = gin.New()
+	s.router.Use(customLogger()) // dein Logger mit Filter
+	s.router.Use(gin.Recovery())
 
 	v1 := s.router.Group("/v1")
 	s.routerGroups.Store(routerGroupV1, v1)
