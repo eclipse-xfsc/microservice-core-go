@@ -11,7 +11,7 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.18.2
 	github.com/jackc/pgx/v5 v5.7.4
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/lestrrat-go/jwx/v2 v2.1.5
+	github.com/lestrrat-go/jwx/v2 v2.1.6
 	github.com/magiconair/properties v1.8.10
 	github.com/redis/go-redis/v9 v9.7.3
 	github.com/sethvargo/go-retry v0.3.0
