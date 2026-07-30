@@ -8,7 +8,7 @@ type Config struct {
 	Username  string `envconfig:"USERNAME"`
 	Password  string `envconfig:"PASSWORD"`
 	Database  int    `envconfig:"DATABASE" default:"0"`
-	IsCluster bool   `envconfig:"DATABASE" default:"false"`
+	IsCluster bool   `envconfig:"ISCLUSTER" default:"false"`
 }
 
 func (c Config) DSN() string {
